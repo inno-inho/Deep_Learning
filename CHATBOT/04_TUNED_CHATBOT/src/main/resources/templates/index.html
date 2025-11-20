@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Home</title>
+    <link rel="stylesheet" href="/css/index.css" th:href="@{/css/index.css}">
+</head>
+<body>
+<h1>챗봇 테스트 INDEX PAGE</h1>
+<!--
+	챗봇 창
+-->
+
+<!-- 챗봇 버튼 컨테이너 -->
+<div class="chat-launcher-container">
+    <!-- 고급 챗봇 -->
+    <button class="chat-launcher chat-launcher-advanced" id="chatLauncher" type="button" aria-label="고급 챗봇 열기">
+        고급
+    </button>
+
+    <div class="chat-panel" id="chatPanel">
+        <div class="chat-header" style="background: #7c3aed;">
+            <div class="chat-header-title">AI 챗봇 (고급)</div>
+            <button class="chat-close" id="chatClose" aria-label="대화창 닫기">&times;</button>
+        </div>
+        <div class="chat-quick-select" id="chatQuickSelect"></div>
+        <div class="chat-body">
+            <div class="chat-message bot">
+                <span class="bot-badge">AI 상담</span>
+                안녕하세요! 고급 AI 챗봇입니다. API 관련 문의를 도와드립니다. 예: "사용 가능한 모든 API", "POST 기능만", "회원 관리 API"
+            </div>
+
+        </div>
+        <div class="chat-suggestions" id="chatSuggestions">
+
+        </div>
+        <div class="chat-input-area">
+            <input class="chat-input" type="text" placeholder="메시지를 입력하세요">
+            <button class="chat-send" type="button">전송</button>
+        </div>
+    </div>
+
+    <!-- 단순 챗봇 -->
+    <button class="chat-launcher chat-launcher-simple" id="simpleChatLauncher" type="button" aria-label="단순 챗봇 열기">
+        단순
+    </button>
+    <button class="chat-launcher chat-launcher-doc" id="docChatLauncher" type="button" aria-label="문서 챗봇 열기">
+        DOC
+    </button>
+</div>
+
+<div class="chat-panel" id="simpleChatPanel">
+    <div class="chat-header" style="background: #ec4899;">
+        <div class="chat-header-title">AI 챗봇 (단순)</div>
+        <button class="chat-close" id="simpleChatClose" aria-label="대화창 닫기">&times;</button>
+    </div>
+    <div class="chat-body">
+        <div class="chat-message bot">
+            <span class="bot-badge">AI 상담</span>
+            안녕하세요! 단순 AI 챗봇입니다. 무엇이든 물어보세요! 😊
+        </div>
+
+    </div>
+    <div class="chat-input-area">
+        <input class="chat-input" id="simpleChatInput" type="text" placeholder="메시지를 입력하세요">
+        <button class="chat-send" id="simpleChatSend" type="button">전송</button>
+    </div>
+</div>
+
+<div class="chat-panel" id="docChatPanel">
+    <div class="chat-header" style="background: #0ea5e9;">
+        <div class="chat-header-title">API 문서 조회</div>
+        <button class="chat-close" id="docChatClose" aria-label="대화창 닫기">&times;</button>
+    </div>
+    <div class="chat-quick-select" id="docSummaryBar">
+        <select id="docSummarySelect" aria-label="Swagger Summary 선택">
+            <option value="">요약 항목을 불러오는 중...</option>
+        </select>
+    </div>
+    <div class="chat-body" id="docChatBody">
+        <div class="chat-message bot">
+            <span class="bot-badge">AI 상담</span>
+            OpenAPI 문서를 불러옵니다. 잠시만 기다려주세요...
+        </div>
+    </div>
+    <div class="chat-suggestions" id="docChatSuggestions"></div>
+    <div class="chat-input-area">
+        <input class="chat-input" id="docChatInput" type="text" placeholder="예: paths, tags, servers, path /users, method GET">
+        <button class="chat-send" id="docChatSend" type="button">조회</button>
+    </div>
+</div>
+
+
+<!-- 문서 조회 전용 스크립트 -->
+<script src="/js/doc-chat.js" th:src="@{/js/doc-chat.js}"></script>
+
+<!-- OLLAMA 단순 연결  -->
+<script src="/js/simple-chat.js" th:src="@{/js/simple-chat.js}"></script>
+
+<!-- 히스토리 + VectorStore 연결  -->
+<script src="/js/tuned-chat.js" th:src="@{/js/tuned-chat.js}"></script>
+
+
+
+</body>
+</html>
+
+

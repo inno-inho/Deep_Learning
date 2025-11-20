@@ -1,0 +1,8 @@
+# data.yaml 파일 (학습 시 사용)
+path: /kaggle/working/dataset 
+train: images/train  
+val: images/val      
+test: images/test    
+
+nc: 6
+names: ['driveway', 'pole', 'pier', 'water_side', 'water_area', 'rain_gutter']
